@@ -18,6 +18,10 @@
   "homepage": "https://github.com/themarkr/MarcyEats#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "knex": "^1.0.4",
     "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
