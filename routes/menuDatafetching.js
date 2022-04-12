@@ -12,7 +12,4 @@ router.get('/menuItems', menu.getAllMenu);
 
 router.get('/menuItems/:id', menu.getMenuItem);
 
-
-
-
 module.exports = router;
