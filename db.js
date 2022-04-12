@@ -3,7 +3,7 @@ const { Pool } = require('pg');
 
 
 const connectionDevelopment = {
-    database: 'to_do',  // Replace this with your DB name
+    database: 'marcyeats',  // Replace this with your DB name
     user: 'leo',              // If you have a different postgres user, replace here
     password: '1',                  // If you have a postgres password, write it here
     host: 'localhost'
