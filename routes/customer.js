@@ -56,33 +56,7 @@ router.put('/customer/:id', async (req,res) => {
     } catch (err){
         res.status(500).json({ message: `${err.message}`});
     }
-  
-   
 })
 
-// async function patchComment(req, res) {
-//     const { id } = req.params;
-//     const body = req.body;
-//     if (!body.description) {
-//         return res.status(400).json({ message: 'no description' });
-//     }
-//     try {
-//         const validateID = await ToDo.find(id);
-//         if (!validateID.length) {
-//             return res.status(400).json({ message: `to do with an id of ${id} does not exist` })
-//         }
-
-//         const dbResult = await ToDo.changeToDoDescription(body.description, id)
-//         res.status(200).json({ data: dbResult.rows })///  status code changed here to back
-//     } catch (err) {
-//         res.status(500).json({ message: `${err.message}` });
-//     }
-// }
-
-
-
-// router.post()
-
-// router.get('/menuItems/:id', menu.getMenuItem);
 
 module.exports = router;
