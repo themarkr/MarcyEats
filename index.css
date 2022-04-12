@@ -1,0 +1,19 @@
+.dark-blue-block {
+    background-color: #f0ede6;
+    min-width: 300px;
+    max-width: 660px;
+    min-height: 300px;
+    max-height: 660px;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 50px;
+}
+
+footer {
+    background-color: #f0ede6;
+}
+
+footer .col-12 {
+    display: flex;
+    justify-content: center;
+}
