@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="./menu-styling.css" rel="stylesheet">
+    <title>MarcyEats</title>
+
+    <body>
+        <nav class="navbar navbar-light text-center d-flex" style="background-color: #f0ede6;height: 5rem;align-items: center;margin-bottom: 2rem;">
+            <div class="container-fluid d-flex ">
+                <span class="navbar-brand mb-0 h1 text-center d-flex" style="color: 
+                black;font-size: 3rem;">MarcyEats</span>
+                <button id="daily-intake-btn" class="btn position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="background-color: #bdb246; visibility: hidden;">View Daily Intake
+                    <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" id="badge" style="display: none">
+                      </span>
+                </button>
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Cart</button>
+                    </li>
+
+                </ul>
+                <!--CART VIEW-->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        ...
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col-md-6">
+                <!-- APPETIZERS -->
+                <div class="card">
+                    <h5 class="card-header">APPETIZERS</h5>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Nachos Bandera</div>
+                                    Veggie chili, Monterey Jack cheese, guacamole, pico de gallo, and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$11.25</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Quesadillas</div>
+                                    Twelve inch flour tortilla folded over melted Monterey Jack cheese. Includes two ounce side of salsa fresca and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$6.50</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Chips and Guacamole</div>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$9.50</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- FAJITAS -->
+                <div class="card">
+                    <h5 class="card-header">FAJITAS</h5>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Nachos Bandera</div>
+                                    Veggie chili, Monterey Jack cheese, guacamole, pico de gallo, and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$11.25</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Quesadillas</div>
+                                    Twelve inch flour tortilla folded over melted Monterey Jack cheese. Includes two ounce side of salsa fresca and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$6.50</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Chips and Guacamole</div>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$9.50</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <!-- BURRITOS -->
+                <div class="card">
+                    <h5 class="card-header">BURRITOS</h5>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Nachos Bandera</div>
+                                    Veggie chili, Monterey Jack cheese, guacamole, pico de gallo, and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$11.25</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Quesadillas</div>
+                                    Twelve inch flour tortilla folded over melted Monterey Jack cheese. Includes two ounce side of salsa fresca and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$6.50</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Chips and Guacamole</div>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$9.50</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <!-- TACOS -->
+                <div class="card">
+                    <h5 class="card-header">TACOS</h5>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Nachos Bandera</div>
+                                    Veggie chili, Monterey Jack cheese, guacamole, pico de gallo, and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$11.25</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Quesadillas</div>
+                                    Twelve inch flour tortilla folded over melted Monterey Jack cheese. Includes two ounce side of salsa fresca and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$6.50</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Chips and Guacamole</div>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$9.50</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <!-- MEXICAN TACOS -->
+                <div class="card">
+                    <h5 class="card-header">MEXICAN STYLE TACOS</h5>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Nachos Bandera</div>
+                                    Veggie chili, Monterey Jack cheese, guacamole, pico de gallo, and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$11.25</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Quesadillas</div>
+                                    Twelve inch flour tortilla folded over melted Monterey Jack cheese. Includes two ounce side of salsa fresca and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$6.50</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Chips and Guacamole</div>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$9.50</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- GRASS EATERS -->
+                <div class="card">
+                    <h5 class="card-header">VEGETARIAN</h5>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Nachos Bandera</div>
+                                    Veggie chili, Monterey Jack cheese, guacamole, pico de gallo, and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$11.25</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Quesadillas</div>
+                                    Twelve inch flour tortilla folded over melted Monterey Jack cheese. Includes two ounce side of salsa fresca and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$6.50</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Chips and Guacamole</div>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$9.50</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <!-- BURGERS -->
+                <div class="card">
+                    <h5 class="card-header">BURGERS</h5>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Nachos Bandera</div>
+                                    Veggie chili, Monterey Jack cheese, guacamole, pico de gallo, and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$11.25</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Quesadillas</div>
+                                    Twelve inch flour tortilla folded over melted Monterey Jack cheese. Includes two ounce side of salsa fresca and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$6.50</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Chips and Guacamole</div>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$9.50</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- SALADS -->
+                <div class="card">
+                    <h5 class="card-header">SALAD</h5>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Nachos Bandera</div>
+                                    Veggie chili, Monterey Jack cheese, guacamole, pico de gallo, and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$11.25</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Quesadillas</div>
+                                    Twelve inch flour tortilla folded over melted Monterey Jack cheese. Includes two ounce side of salsa fresca and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$6.50</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Chips and Guacamole</div>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$9.50</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <!-- MEXICAN DISHES -->
+                <div class="card">
+                    <h5 class="card-header">OUR DISHES</h5>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Nachos Bandera</div>
+                                    Veggie chili, Monterey Jack cheese, guacamole, pico de gallo, and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$11.25</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Quesadillas</div>
+                                    Twelve inch flour tortilla folded over melted Monterey Jack cheese. Includes two ounce side of salsa fresca and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$6.50</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Chips and Guacamole</div>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$9.50</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- WRAPS -->
+                <div class="card">
+                    <h5 class="card-header">WRAPS</h5>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Nachos Bandera</div>
+                                    Veggie chili, Monterey Jack cheese, guacamole, pico de gallo, and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$11.25</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Quesadillas</div>
+                                    Twelve inch flour tortilla folded over melted Monterey Jack cheese. Includes two ounce side of salsa fresca and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$6.50</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Chips and Guacamole</div>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$9.50</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <!-- TORTAS -->
+                <div class="card">
+                    <h5 class="card-header">TORTAS</h5>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Nachos Bandera</div>
+                                    Veggie chili, Monterey Jack cheese, guacamole, pico de gallo, and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$11.25</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Quesadillas</div>
+                                    Twelve inch flour tortilla folded over melted Monterey Jack cheese. Includes two ounce side of salsa fresca and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$6.50</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Chips and Guacamole</div>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$9.50</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- BEV -->
+                <div class="card">
+                    <h5 class="card-header">BEV</h5>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Nachos Bandera</div>
+                                    Veggie chili, Monterey Jack cheese, guacamole, pico de gallo, and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$11.25</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Quesadillas</div>
+                                    Twelve inch flour tortilla folded over melted Monterey Jack cheese. Includes two ounce side of salsa fresca and sour cream.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$6.50</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Chips and Guacamole</div>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">$9.50</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- DESSERTS -->
+            <div class="card">
+                <h5 class="card-header">DESSERT</h5>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Nachos Bandera</div>
+                                Veggie chili, Monterey Jack cheese, guacamole, pico de gallo, and sour cream.
+                            </div>
+                            <span class="badge bg-primary rounded-pill">$11.25</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Quesadillas</div>
+                                Twelve inch flour tortilla folded over melted Monterey Jack cheese. Includes two ounce side of salsa fresca and sour cream.
+                            </div>
+                            <span class="badge bg-primary rounded-pill">$6.50</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Chips and Guacamole</div>
+                            </div>
+                            <span class="badge bg-primary rounded-pill">$9.50</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </body>
+
+    <footer class="container-fluid mt-5 footer pt-5">
+        <div class="row">
+            <div class="col-12">
+                <a href="#" class="p-2">Privacy</a>
+                <a href="#" class="p-2">Terms</a>
+                <a href="#" class="p-2">Conditions</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                &copy Copyright 2021 Marcy Lab School
+            </div>
+        </div>
+    </footer>
+</head>
