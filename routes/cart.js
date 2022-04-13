@@ -5,14 +5,14 @@ const router = require('express').Router();
 const { pool } = require('../db');
 
 router.get('/', (req,res)=> {
-    res.status(200).json({"message":"This is my menu ordering api"})
+    res.status(200).json({"message":"This is my cart api"})
 })
 
 
 //what table are we working with : order_items
 
 //this route will be used to get all the info for an order  
-router.get('/order/:id', async (req, res) => {
+router.get('/cart/:id', async (req, res) => {
     const orderId = req.params.id;
     try{
         const sql = `SELECT order_items.order_id, menu.id, menu.name, order_items.quantity, menu.price
@@ -22,20 +22,20 @@ router.get('/order/:id', async (req, res) => {
         where order_id=$1
         GROUP by 1,2,3,4,5;`
         const response = await pool.query(sql,[orderId]);
-        res.status(200).json({orderInfo: response.rows});
+        res.status(200).json({cartInfo: response.rows});
     } catch (err){
         res.status(500).json({ message: `${err.message}`})
     }
 });
 //this will be used to add items to a specifc order  
-router.post('/order/:id', async (req, res) => {
+router.post('/cart/:id', async (req, res) => {
     const orderId = req.params.id;
     const menuItemId = req.body.menuId;
     try{
         const sql = `INSERT INTO order_items (order_id, menu_id)
         VALUES ($1, $2) returning *;`
         const response = await pool.query(sql,[orderId, menuItemId]);
-        res.status(201).json({orderitem: response.rows})
+        res.status(201).json({cartItem: response.rows})
     } catch (err){
         res.status(500).json({ message: `${err.message}`})
     }
@@ -44,7 +44,7 @@ router.post('/order/:id', async (req, res) => {
 //this route will be used to change the qunity of an order
 
 //this will be used to add 1 more to an exsiisting food 
-router.patch('/order/:id/add', async (req, res) => {
+router.patch('/cart/:id/add', async (req, res) => {
     const menuItemId = req.body.menuId;
     const orderId = req.params.id;
     //
@@ -62,7 +62,7 @@ router.patch('/order/:id/add', async (req, res) => {
 })
 
 //this route will be used to subtrack from the qunity of an exsisting order item 
-router.patch('/order/:id/subtract', async (req, res) => {
+router.patch('/cart/:id/subtract', async (req, res) => {
     const menuItemId = req.body.menuId;
     const orderId = req.params.id;
     //
@@ -81,7 +81,7 @@ router.patch('/order/:id/subtract', async (req, res) => {
 
 /// deleate a  item from an order
 
-router.delete('/order/:id', async (req, res) => {
+router.delete('/cart/:id', async (req, res) => {
 
     const menuItemId = req.body.menuId;
     const orderId = req.params.id;

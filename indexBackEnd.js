@@ -5,7 +5,7 @@ const express = require('express');
 const { pool } = require('./db');
 const menuRoutes = require("./routes/menuDatafetching")
 const customerRoutes = require('./routes/customer')
-const orderingRoutes = require('./routes/cart')
+const cartRoutes = require('./routes/cart')
 
 const app = express();
 
@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.use("/menu",menuRoutes);
 app.use("/customer", customerRoutes);
-app.use('/order', orderingRoutes);
+app.use('/cart', cartRoutes);
 
 
 app.listen(PORT, () => {
