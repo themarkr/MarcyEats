@@ -8,8 +8,9 @@ exports.up = function(knex) {
         table.timestamp('created_at').defaultTo(knex.fn.now());
 
         table.integer('customer_id').notNullable();
-        table.foreign('customer_id').references('customers.id'); 
-        
+        table.foreign('customer_id').references('customers.id');
+
+        table.boolean('completed').defaultTo(false);
         table.decimal('order_total', 8, 2);
     })  
 };
