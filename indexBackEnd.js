@@ -4,6 +4,7 @@ const express = require('express');
 
 const { pool } = require('./db');
 const menuRoutes = require("./routes/menuDatafetching")
+const customerRoutes = require('./routes/customer')
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 
 
 app.use("/menu",menuRoutes);
+app.use("/customer", customerRoutes);
 
 
 app.listen(PORT, () => {
