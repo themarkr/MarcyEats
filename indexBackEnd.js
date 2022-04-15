@@ -1,5 +1,5 @@
 const express = require('express');
-// const coros = require('co')
+const cors = require('cors');
 
 
 const { pool } = require('./db');
@@ -13,11 +13,12 @@ const PORT = process.env.PORT || 3000;
 
 /// need to add middle wear 
 app.use(express.json());
+app.use(cors());
 
 
 
 
-app.use("/menu",menuRoutes);
+app.use("/menu", menuRoutes);
 app.use("/customer", customerRoutes);
 app.use('/cart', cartRoutes);
 
