@@ -22,7 +22,7 @@
                     <a class="nav-link" href="./menu.html">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Cart</button>
+                    <button id="cartB" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Cart</button>
                 </li>
             </ul>
         </div>
@@ -42,7 +42,7 @@
                         <th scope="col">Price</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="foodItems">
                     // iterate over response // for every element in response // create a tr element // insert td elements and change the inner html to be the data thats in the response for that element
                     <tr>
                         <td>tacos</td>
@@ -63,7 +63,7 @@
                 <tfoot>
                     <tr>
                         <td colspan="2">Order Total</td>
-                        <td>$39.97</td>
+                        <td id="orderTotal">$39.97</td>
                     </tr>
                 </tfoot>
             </table>
@@ -125,6 +125,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="renderCartItems.js"></script>
 </body>
 
 

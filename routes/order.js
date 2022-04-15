@@ -15,6 +15,38 @@ this shall only take in the customer id directly in the route
 --- this will return array filled with all the order ever made by the customer 
 */
 
+// router.get('/:id', async (req, res)=>{
+//     const orderId = req.params.id;
+//     try {
+//         const sql = `SELECT * from orders where id = $1;`
+//         const response = await pool.query(sql,[orderId]);
+//         res.status(200).json({cartInfo: response.rows});     
+//     } catch (err){
+//         res.status(500).json({ message: `${err.message}`})
+//     }
+// })
+
+/// this route will be used to check if a custer order has been compleated
+/*
+this shall only take in the customer id directly in the route
+
+--- this will return the order information of the given customer
+
+*/
+router.get('/mostRecent', async (req, res) => {
+    try{
+        const sql = `SELECT *
+        from orders
+        order by created_at DESC
+        limit 1;`
+        const response = await pool.query(sql)
+        // console.log(response.rows)
+        res.status(201).json({mostRecentOrder : response.rows})
+    } catch (err){
+        res.status(500).json({ message: `${err.message}`})
+    }
+})
+
 router.get('/:id', async (req, res)=>{
     const orderId = req.params.id;
     try {
@@ -25,14 +57,6 @@ router.get('/:id', async (req, res)=>{
         res.status(500).json({ message: `${err.message}`})
     }
 })
-
-/// this route will be used to check if a custer order has been compleated
-/*
-this shall only take in the customer id directly in the route
-
---- this will return the order information of the given customer
-
-*/
 
 router.get('/:id/mostRecentOrder', async (req, res) => {
     const customerId = req.params.id;
