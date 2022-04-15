@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require("cors");
+const cors = require('cors');
 
 
 const { pool } = require('./db');
@@ -19,7 +19,7 @@ app.use(cors());
 
 
 
-app.use("/menu",menuRoutes);
+app.use("/menu", menuRoutes);
 app.use("/customer", customerRoutes);
 app.use('/cart', cartRoutes);
 app.use('/order', orderRoutes);
