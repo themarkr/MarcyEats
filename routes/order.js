@@ -4,14 +4,18 @@ const router = require("express").Router();
 const { pool } = require('../db');
 
 
-router.get('/', (req,res)=> {
+router.get('/hello', (req,res)=> {
     res.status(200).json({"message":"This is my order api"})
 })
 
-///we need to que the order by id or by customer 
+///this route will display  all the order ever made by a given customer
+/*
+this shall only take in the customer id directly in the route
 
+--- this will return array filled with all the order ever made by the customer 
+*/
 
-router.get('/order/:id', async (req, res)=>{
+router.get('/:id', async (req, res)=>{
     const orderId = req.params.id;
     try {
         const sql = `SELECT * from orders where id = $1;`
@@ -22,9 +26,15 @@ router.get('/order/:id', async (req, res)=>{
     }
 })
 
-/// this route will be used to check for the  most recent order and see if its compleated 
+/// this route will be used to check if a custer order has been compleated
+/*
+this shall only take in the customer id directly in the route
 
-router.get('/order/:id/mostRecentOrder', async (req, res) => {
+--- this will return the order information of the given customer
+
+*/
+
+router.get('/:id/mostRecentOrder', async (req, res) => {
     const customerId = req.params.id;
     try{
         const sql = `SELECT *
@@ -41,8 +51,17 @@ router.get('/order/:id/mostRecentOrder', async (req, res) => {
 })
 
 
-///this will be used to checkout as guest 
-router.post('/order/guest', async (req, res) => {
+
+///this  route will be used to start a new order for guest (non members)
+
+/*
+nothing is requried in the body of this request besides specifly that it is a post request
+
+--- this will return the new order created. 
+*/
+
+
+router.post('/guest', async (req, res) => {
     try{
         const sql = `INSERT INTO orders (customer_id)
         VALUES (1) returning *;`
@@ -54,8 +73,17 @@ router.post('/order/guest', async (req, res) => {
     }
 });
 
-//this route will be used for exsisting customer 
-router.post('/order/:id', async (req, res) => {
+////
+
+//this route will be used to start a new orders for memeber of the resturant
+
+/*
+this will take in the customer id directly inside of the route and nothing else 
+
+--- it will return the new order created 
+*/
+
+router.post('/:id', async (req, res) => {
     const customerId = req.params.id
     try{
         const sql = `INSERT INTO orders (customer_id)
@@ -68,8 +96,14 @@ router.post('/order/:id', async (req, res) => {
 });
 
 
-/// this route will be used to updata and order compleated to true and update total when someone checksout  
-router.patch('/order/:id/checkout', async (req, res) => {
+/// this route should be used when a customer checkes out,
+/*
+this will take the customer id directly in the route and 
+will take the orderId and total inside of the request body
+
+-- this will return the updated order. 
+*/ 
+router.patch('/:id/checkout', async (req, res) => {
     const customerId = req.params.id;
     const orderId = req.body.orderId; 
     const orderTotal = req.body.total;
@@ -81,7 +115,7 @@ router.patch('/order/:id/checkout', async (req, res) => {
 
         const response = await pool.query(sql, [orderTotal, customerId, orderId])
         console.log(response.rows)
-        res.status(201).json({message: response})
+        res.status(201).json({message: response.rows})
     
     } catch (err){
         res.status(500).json({ message: `${err.message}`})
