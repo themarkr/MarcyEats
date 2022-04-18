@@ -24,68 +24,70 @@
             </ul>
         </div>
     </nav>
-    <div style="display: initial;">
-        <div class="container-fluid d-flex" style="justify-content: center; margin-bottom:1rem">
-            <h2>Your Order</h2>
-        </div>
-        <div class="container-fluid d-flex" style="justify-content: center;">
-            <div class="row" style="width: 800px; min-width: 200px;">
-                <div class="col-12">
-                    <table class="table table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">Menu Items</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>tacos</td>
-                                <td>1</td>
-                                <td>$11.99</td>
-                            </tr>
-                            <tr>
-                                <td>chips & guac</td>
-                                <td>2</td>
-                                <td>$22.98</td>
-                            </tr>
-                            <tr>
-                                <td>jaritos</td>
-                                <td>1</td>
-                                <td>$5.00</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="2">Order Total</td>
-                                <td>$39.97</td>
-                            </tr>
+
+    <div class="container-fluid d-flex" style="justify-content: center; margin-bottom:1rem">
+        <h2>Your Order</h2>
+    </div>
+    <div class="container-fluid d-flex" style="justify-content: center;">
+        <div class="row" style="width: 800px; min-width: 200px;">
+            <div class="col-12">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Menu Items</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="foodItems">
+                        <tr>
+                            <td>tacos</td>
+                            <td>1</td>
+                            <td>$11.99</td>
+                        </tr>
+                        <tr>
+                            <td>chips & guac</td>
+                            <td>2</td>
+                            <td>$22.98</td>
+                        </tr>
+                        <tr>
+                            <td>jaritos</td>
+                            <td>1</td>
+                            <td>$5.00</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">Order Total</td>
+                            <td id="orderTotal">0.00</td>
+                        </tr>
 
                         </tfoot>
                     </table>
                 </div>
             </div>
         </div>
-        <div class="container-fluid d-flex" style="justify-content: center;">
-            <div class="row" style="max-width: 800px;">
-                <div class="col-12">
-                    <form id="payment-information-form">
-                        <h5>Payment Info</h5>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Card Number</label>
-                            <input class="form-control" id="exampleInputEmail1">
-                            <div id="emailHelp" class="form-text">We'll never share your information with anyone else.</div>
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-text">CVV</span>
-                            <input type="text" aria-label="First name" class="form-control">
-                            <span class="input-group-text">Expiration MM/YY</span>
-                            <input type="text" aria-label="Last name" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
+
+    </div>
+  
+    <div class="container-fluid d-flex" style="justify-content: center;">
+        <div class="row" style="max-width: 800px;">
+            <div class="col-12">
+                <form id="payment-information-form">
+                    <h5>Payment Info</h5>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Card Number</label>
+                        <input class="form-control" id="exampleInputEmail1">
+                        <div id="emailHelp" class="form-text">We'll never share your information with anyone else.</div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text">CVV</span>
+                        <input type="text" aria-label="First name" class="form-control">
+                        <span class="input-group-text">Expiration MM/YY</span>
+                        <input type="text" aria-label="Last name" class="form-control">
+                    </div>
+                    <button id="checkOutButton" type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
     </div>
@@ -99,6 +101,7 @@
                 </div>
             </div>
         </div>
+
         <div class="container-fluid d-flex" style="justify-content: center;">
             <div class="progress" style="width: 50%;">
                 <div class="progress-bar progress-bar-striped progress-bar-animated w-25" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Prepping your order</div>
@@ -109,6 +112,8 @@
                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
+     <script src="renderCartItems.js"></script>
+    <script src="checkOutPage.js"></script>
 </body>
 
 </html>

@@ -31,14 +31,29 @@ const itemInCart = (cart, itemID) => {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    const orderID = 2;
+
+
+    const fetchOrderId = async () =>{
+        const response = await fetch(` http://localhost:3000/order/mostRecent`)
+        const data = await response.json()
+        return data.mostRecentOrder[0].id
+    } 
+
+    // make this an aysnc func so that it can work.....
+    // */
+
+    const orderId = await fetchOrderId()
+    // console.log("hek kc sd")
+    // console.log(orderId,"hello?")
+
+
     const buttons = document.querySelectorAll('.add-to-cart-button')
     buttons.forEach(button => {
         button.addEventListener('click', async(event) => {
             const menuItemID = event.target.id
             const cart = await getItemsInCart(orderID);
             if (itemInCart(cart, menuItemID)) {
-                await fetch(`http://localhost:3000/cart/cart/${orderID}/add`, {
+                await fetch(`http://localhost:3000/cart/cart/${orderId}/add`, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json'
@@ -46,9 +61,10 @@ window.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify({
                         menuId: menuItemID
                     })
+
                 })
             } else {
-                await fetch(`http://localhost:3000/cart/cart/${orderID}`, {
+                await fetch(`http://localhost:3000/cart/cart/${orderId}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -61,3 +77,5 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     })
 })
+
+
