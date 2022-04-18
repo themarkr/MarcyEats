@@ -25,6 +25,7 @@ window.addEventListener('load', async () => {
         total = total.toFixed(2);
         return total
     }
+    //
 
     const total = await getTotal()
     const orderId = await fetchOrderId()
