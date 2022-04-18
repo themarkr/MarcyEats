@@ -24,6 +24,7 @@
             </ul>
         </div>
     </nav>
+
     <div class="container-fluid d-flex" style="justify-content: center; margin-bottom:1rem">
         <h2>Your Order</h2>
     </div>
@@ -61,11 +62,14 @@
                             <td id="orderTotal">0.00</td>
                         </tr>
 
-                    </tfoot>
-                </table>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
         </div>
+
     </div>
+  
     <div class="container-fluid d-flex" style="justify-content: center;">
         <div class="row" style="max-width: 800px;">
             <div class="col-12">
@@ -87,34 +91,28 @@
             </div>
         </div>
     </div>
-    <!-- <div class="rounded-bottom" style="background-color: #eee; max-width: 500px;">
-        <div class="card-body">
-            <p class="mb-4">Your payment details</p>
 
-            <div class="form-outline mb-3">
-                <input type="text" id="formControlLgXM8" class="form-control" placeholder="1234 5678 1234 5678" />
-                <label class="form-label" for="formControlLgXM8">Card Number</label>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-6">
-                    <div class="form-outline">
-                        <input type="password" id="formControlLgExpk8" class="form-control" placeholder="MM/YYYY" />
-                        <label class="form-label" for="formControlLgExpk8">Expire</label>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="form-outline">
-                        <input type="password" id="formControlLgcvv8" class="form-control" placeholder="Cvv" />
-                        <label class="form-label" for="formControlLgcvv8">Cvv</label>
-                    </div>
+    <div id="success-page">
+        <!-- DISTANCE MATRIX API KEY AIzaSyDQAeJr9VVEVkL0EwZtwczj-RkVwQXxA4k -->
+        <div class="container-fluid d-flex" style="justify-content: center;">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Thank you for placing your order</h2>
                 </div>
             </div>
-
-            <button class="btn btn-info btn-block">Order now</button>
         </div>
-    </div> -->
-    <script src="renderCartItems.js"></script>
+
+        <div class="container-fluid d-flex" style="justify-content: center;">
+            <div class="progress" style="width: 50%;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated w-25" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Prepping your order</div>
+            </div>
+        </div>
+        <div class="container-fluid d-flex" style="justify-content: center;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3017.748302375326!2d-74.14611808429444!3d40.855449579316605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2ff20f28a8ef3%3A0xdf6bd4de2964e150!2s503%20Van%20Houten%20Ave%2C%20Passaic%2C%20NJ%2007055!5e0!3m2!1sen!2sus!4v1650306871528!5m2!1sen!2sus"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+     <script src="renderCartItems.js"></script>
     <script src="checkOutPage.js"></script>
 </body>
 
