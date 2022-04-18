@@ -1,11 +1,28 @@
 // dom content loaded
-window.addEventListener('DOMContentLoaded', () => {
-    const orderID = 1;
+window.addEventListener('DOMContentLoaded', async () => {
+    // const orderID = 1;
+
+
+    //  GONNA AT THE FUNCTION HERE ..... 
+
+    const fetchOrderId = async ()=>{
+        const response = await fetch(` http://localhost:3000/order/mostRecent`)
+        const data = await response.json()
+        return data.mostRecentOrder[0].id
+    } 
+
+    // make this an aysnc func so that it can work.....
+    // */
+
+    const orderId = await fetchOrderId()
+
+    console.log(orderId)
+
     const buttons = document.querySelectorAll('.add-to-cart-button')
     buttons.forEach(button => {
         button.addEventListener('click', (event) => {
             const menuItemID = event.target.id
-            fetch(`http://localhost:3000/cart/cart/${orderID}`, {
+            fetch(`http://localhost:3000/cart/cart/${orderId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -17,6 +34,9 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     })
 })
+
+//Leo notes: inorder to make this dynamic im gonna have to add the function that is able to locatate the latsest order 
+
 
 
 // function that queries the database using user id 1 to find the most recent order id that is not complete 

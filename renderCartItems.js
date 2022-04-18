@@ -1,27 +1,35 @@
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', async (event) => {
     console.log('DOM fully loaded and parsed, hello?');
  
-    const fetchOrderId = async()=>{
+    //this is fetching the order Id that is most recent 
+
+    const fetchOrderId = async ()=>{
         const response = await fetch(` http://localhost:3000/order/mostRecent`)
         const data = await response.json()
         return data.mostRecentOrder[0].id
     } 
 
+
+    //this is grabing the order information the display all order items in the cart  
     const data = async () => {
-        const id = await fetchOrderId()
-        const response = await fetch(` http://localhost:3000/cart/cart/${id}`)
+        const orderId = await fetchOrderId()
+        console.log(orderId)
+        const response = await fetch(` http://localhost:3000/cart/cart/${orderId}`)
         const data = await response.json()
         return data.cartInfo 
     }
 
+    // console.log(orderId)
+
     const orderSubTotal = document.getElementById('orderTotal')
     const table = document.getElementById('foodItems')
-    const cartButton = document.getElementById('cartB')
+    // const cartButton = document.getElementById('cartB')
 
-    cartButton.addEventListener("click", async (event)=> {
             let total = 0
             table.innerHTML = ""
             const tableItems = await data()
+
+            console.log(tableItems)
 
             tableItems.forEach(orderitem => {
                 total += orderitem.price * orderitem.quantity
@@ -38,6 +46,5 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
             orderSubTotal.innerHTML = total;
 
-    })
 
 });
