@@ -13,6 +13,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     //this is grabing the order information the display all order items in the cart  
     const data = async () => {
         const orderId = await fetchOrderId()
+        // console.log("he;lo?")
         console.log(orderId)
         const response = await fetch(` http://localhost:3000/cart/cart/${orderId}`)
         const data = await response.json()
@@ -29,6 +30,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
             table.innerHTML = ""
             const tableItems = await data()
 
+            // console.log("hejhjehbcr")
             console.log(tableItems)
 
             tableItems.forEach(orderitem => {
@@ -44,7 +46,6 @@ window.addEventListener('DOMContentLoaded', async (event) => {
                 table.appendChild(tablerow)
             })
 
-            orderSubTotal.innerHTML = total;
-
+            orderSubTotal.innerHTML = total.toFixed(2);
 
 });

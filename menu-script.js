@@ -1,11 +1,11 @@
 // dom content loaded
 window.addEventListener('DOMContentLoaded', async () => {
     // const orderID = 1;
-
+    // console.log("hegerge")
 
     //  GONNA AT THE FUNCTION HERE ..... 
 
-    const fetchOrderId = async ()=>{
+    const fetchOrderId = async () =>{
         const response = await fetch(` http://localhost:3000/order/mostRecent`)
         const data = await response.json()
         return data.mostRecentOrder[0].id
@@ -15,8 +15,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     // */
 
     const orderId = await fetchOrderId()
-
-    console.log(orderId)
+    // console.log("hek kc sd")
+    // console.log(orderId,"hello?")
 
     const buttons = document.querySelectorAll('.add-to-cart-button')
     buttons.forEach(button => {
