@@ -30,28 +30,28 @@ const itemInCart = (cart, itemID) => {
     return false;
 }
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async() => {
 
 
-    const fetchOrderId = async () =>{
+    const fetchOrderId = async() => {
         const response = await fetch(` http://localhost:3000/order/mostRecent`)
         const data = await response.json()
         return data.mostRecentOrder[0].id
-    } 
+    }
 
     // make this an aysnc func so that it can work.....
     // */
 
     const orderId = await fetchOrderId()
-    // console.log("hek kc sd")
-    // console.log(orderId,"hello?")
+        // console.log("hek kc sd")
+        // console.log(orderId,"hello?")
 
 
     const buttons = document.querySelectorAll('.add-to-cart-button')
     buttons.forEach(button => {
         button.addEventListener('click', async(event) => {
             const menuItemID = event.target.id
-            const cart = await getItemsInCart(orderID);
+            const cart = await getItemsInCart(orderId);
             if (itemInCart(cart, menuItemID)) {
                 await fetch(`http://localhost:3000/cart/cart/${orderId}/add`, {
                     method: 'PATCH',
@@ -77,5 +77,3 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     })
 })
-
-
