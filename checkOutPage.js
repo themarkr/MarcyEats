@@ -58,6 +58,4 @@ window.addEventListener('DOMContentLoaded', async() => {
         tableBody.innerHTML = "";
         orderTotal.innerHTML = `$0.00`;
     })
-
-
 })
