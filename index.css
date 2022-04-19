@@ -23,7 +23,20 @@ footer .col-12 {
     display: flex;
     justify-content: space-around;
 }
+.symbol {
+    /* text-decoration-color: black;
+     */
+    font-size: larger;
+    cursor: pointer;
+}
 
+.textColor {
+    color: coral;
+}
+
+.alignText {
+    align-items: center;
+}
 /* {
     font-size: larger;
 } */
