@@ -82,11 +82,8 @@ router.patch('/cart/:id/subtract', async (req, res) => {
 /// deleate a  item from an order
 
 router.delete('/cart/:id', async (req, res) => {
-
     const menuItemId = req.body.menuId;
     const orderId = req.params.id;
-    
-
     try{
         const sql = `DELETE from order_items
         where menu_id = $1 and order_id = $2`

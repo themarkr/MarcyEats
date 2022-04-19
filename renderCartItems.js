@@ -1,10 +1,6 @@
-
-// const helperFunc = require('./addAndSubtractButton');
-
-// console.log(helperFunc)
-
 window.addEventListener('DOMContentLoaded', async (event) => {
     console.log('DOM fully loaded and parsed, hello?');
+    document.body.style.cursor = "default";
 
     const fetchOrderId = async () => {
         const response = await fetch(` http://localhost:3000/order/mostRecent`)
@@ -31,31 +27,24 @@ window.addEventListener('DOMContentLoaded', async (event) => {
 
     const orderSubTotal = document.getElementById('orderTotal')
     const table = document.getElementById('foodItems')
-    // let total = 0
     table.innerHTML = ""
     const tableItems = await data()
-    
-    // tableItems.forEach(orderitem => {
-    //     total += orderitem.price * orderitem.quantity
-    // })
 
     tableItems.forEach((orderitem, index) => {
         let num = orderitem.quantity;
 
         const tablerow = document.createElement('tr');
-        tablerow.setAttribute("id", `tr-${index}`);
+        tablerow.setAttribute("class", `tr_style`);
 
-        tablerow.innerHTML = `<td>${orderitem.name}</td>
-                <td ><span id="minus${index}"> - </span> <span id="quantity${index}">${num} </span> <span id="add${index}"> + </span></td>
+        tablerow.innerHTML = `<td class="simbol">${orderitem.name}</td>
+                <td class="priceTr"><span id="minus${index}"> - </span> <span class="num" id="quantity${index}">${num} </span> <span id="add${index}"> + </span></td>
                 <td>${orderitem.price}</td>`
 
         table.appendChild(tablerow)
         const minus = document.getElementById(`minus${index}`)
         const plus = document.getElementById(`add${index}`)
         let quantity = document.getElementById(`quantity${index}`)
-        // let num = document.getElementById(`quantity${index}`).innerText
-        // console.log(num)
-        // console.log(orderitem.id)
+
 
         plus.addEventListener("click", async () => {
             num = num + 1;
@@ -71,16 +60,14 @@ window.addEventListener('DOMContentLoaded', async (event) => {
                 })
             })
             const total = await getTotal();
-
             orderSubTotal.innerHTML = total;
-            console.log("hello?")
         })
 
         minus.addEventListener("click", async () => {
+            const orderId = await fetchOrderId()
             num = num - 1;
             if (num !== 0) {
                 quantity.innerHTML = num;
-                const orderId = await fetchOrderId()
                 console.log(orderId)
                 await fetch(`http://localhost:3000/cart/cart/${orderId}/subtract`, {
                     method: 'PATCH',
@@ -92,15 +79,23 @@ window.addEventListener('DOMContentLoaded', async (event) => {
                     })
                 })
                 const total = await getTotal();
-
                 orderSubTotal.innerHTML = total;
 
-                // console.log("hello?")
             } else {
-                
+                table.removeChild(tablerow)
+                await fetch(`http://localhost:3000/cart/cart/${orderId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        menuId: orderitem.id
+                    })
+                })
+                const total = await getTotal();
+                orderSubTotal.innerHTML = total;
             }
         })
-
 
     })
 
