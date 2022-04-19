@@ -17,3 +17,16 @@ footer .col-12 {
     display: flex;
     justify-content: center;
 }
+
+
+.priceTr {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* {
+    font-size: larger;
+} */
+
+/* span.num {
+    /* border-right: 2px solid black;  */

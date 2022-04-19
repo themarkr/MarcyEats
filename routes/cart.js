@@ -64,31 +64,14 @@ router.patch('/cart/:id/add', async (req, res) => {
 
 //this route will be used to subtrack from the qunity of an exsisting order item 
 
-//put 
-
-
-//need to make this a put to not impact the other data 
-
-
-
-
-
-router.put('/cart/:id/subtract', async (req, res) => {
+router.patch('/cart/:id/subtract', async (req, res) => {
     const menuItemId = req.body.menuId;
     const orderId = req.params.id;
-    /// dif
-    /// add a way to verify that an order exsist later
-    ///
-
     try {
+        const sql = `UPDATE order_items
+        set quantity = quantity - 1
+        where menu_id = $1 and order_id = $2 returning *;`
 
-        const oldOrder = await pool.query(`SELECT * 
-        from orders 
-        WHERE customer_id = 1
-        order by created_at DESC
-        LIMIT 1;`);
-
-        // finish this later. 
         const response = await pool.query(sql,[menuItemId, orderId])
         res.status(201).json({message: response.rows})
     } catch(err){
@@ -99,11 +82,8 @@ router.put('/cart/:id/subtract', async (req, res) => {
 /// deleate a  item from an order
 
 router.delete('/cart/:id', async (req, res) => {
-
     const menuItemId = req.body.menuId;
     const orderId = req.params.id;
-    
-
     try{
         const sql = `DELETE from order_items
         where menu_id = $1 and order_id = $2`
