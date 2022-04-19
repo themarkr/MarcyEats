@@ -24,75 +24,59 @@
             </ul>
         </div>
     </nav>
+    <div id="order-confirmation-page">
+        <div class="container-fluid d-flex" style="justify-content: center; margin-bottom:1rem" id="your-order-heading">
+            <h2>Your Order</h2>
+        </div>
+        <div class="container-fluid d-flex" style="justify-content: center;" id="cart-div">
+            <div class="row" style="width: 800px; min-width: 200px;">
+                <div class="col-12">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Menu Items</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody id="foodItems">
 
-    <div class="container-fluid d-flex" style="justify-content: center; margin-bottom:1rem">
-        <h2>Your Order</h2>
-    </div>
-    <div class="container-fluid d-flex" style="justify-content: center;">
-        <div class="row" style="width: 800px; min-width: 200px;">
-            <div class="col-12">
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">Menu Items</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Price</th>
-                        </tr>
-                    </thead>
-                    <tbody id="foodItems">
-                        <tr>
-                            <td>tacos</td>
-                            <td>1</td>
-                            <td>$11.99</td>
-                        </tr>
-                        <tr>
-                            <td>chips & guac</td>
-                            <td>2</td>
-                            <td>$22.98</td>
-                        </tr>
-                        <tr>
-                            <td>jaritos</td>
-                            <td>1</td>
-                            <td>$5.00</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="2">Order Total</td>
-                            <td id="orderTotal">0.00</td>
-                        </tr>
-
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2">Order Total</td>
+                                <td id="orderTotal">0.00</td>
+                            </tr>
                         </tfoot>
                     </table>
                 </div>
             </div>
         </div>
 
-    </div>
-  
-    <div class="container-fluid d-flex" style="justify-content: center;">
-        <div class="row" style="max-width: 800px;">
-            <div class="col-12">
-                <form id="payment-information-form">
-                    <h5>Payment Info</h5>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Card Number</label>
-                        <input class="form-control" id="exampleInputEmail1">
-                        <div id="emailHelp" class="form-text">We'll never share your information with anyone else.</div>
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-text">CVV</span>
-                        <input type="text" aria-label="First name" class="form-control">
-                        <span class="input-group-text">Expiration MM/YY</span>
-                        <input type="text" aria-label="Last name" class="form-control">
-                    </div>
-                    <button id="checkOutButton" type="submit" class="btn btn-primary">Submit</button>
-                </form>
+        <div class="container-fluid d-flex" style="justify-content: center;">
+            <div class="row" style="max-width: 800px;">
+                <div class="col-12">
+                    <form id="payment-information-form">
+                        <h5>Payment Info</h5>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Card Number</label>
+                            <input class="form-control" id="exampleInputEmail1">
+                            <div id="emailHelp" class="form-text">We'll never share your information with anyone else.</div>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">CVV</span>
+                            <input type="text" aria-label="First name" class="form-control">
+                            <span class="input-group-text">Expiration MM/YY</span>
+                            <input type="text" aria-label="Last name" class="form-control">
+                        </div>
+                        <button id="checkOutButton" type="button" class="btn btn-primary">Place Order</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="success-page">
+    <div class='d-none' id="success-page">
         <!-- DISTANCE MATRIX API KEY AIzaSyDQAeJr9VVEVkL0EwZtwczj-RkVwQXxA4k -->
         <div class="container-fluid d-flex" style="justify-content: center;">
             <div class="row">
@@ -112,8 +96,9 @@
                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-     <script src="renderCartItems.js"></script>
+    <script src="renderCartItems.js"></script>
     <script src="checkOutPage.js"></script>
+    <script type="module" src="distanceMatrixAPIscript.js"></script>
 </body>
 
 </html>
