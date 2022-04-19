@@ -36,8 +36,14 @@ window.addEventListener('DOMContentLoaded', async (event) => {
         const tablerow = document.createElement('tr');
         tablerow.setAttribute("class", `tr_style`);
 
-        tablerow.innerHTML = `<td class="simbol">${orderitem.name}</td>
-                <td class="priceTr"><span id="minus${index}"> - </span> <span class="num" id="quantity${index}">${num} </span> <span id="add${index}"> + </span></td>
+        tablerow.innerHTML = `<td>${orderitem.name}</td>
+                <td class="priceTr"><span class="symbol" id="minus${index}"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+              </svg> </span> <span class="num" id="quantity${index}">${num} </span> <span 
+              
+              class="symbol" id="add${index}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+              </svg></span></td>
                 <td>${orderitem.price}</td>`
 
         table.appendChild(tablerow)
