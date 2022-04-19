@@ -10,14 +10,13 @@ const orderRoutes = require('./routes/order')
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
 
 /// need to add middle wear 
 app.use(express.json());
 app.use(cors());
 
 
-
+const PORT = process.env.PORT || 3000;
 
 app.use("/menu", menuRoutes);
 app.use("/customer", customerRoutes);
