@@ -15,6 +15,7 @@ const geoEncoder = async(formattedAddress) => {
     const res = await fetch(`https://api.distancematrix.ai/maps/api/geocode/json?address=${formattedAddress}
     &key=JXZECMtfm9O0eLHmtaflAmhmPJ7xM`)
     const data = await res.json();
+    console.log(data)
     return data.result[0].geometry.location
 }
 
@@ -22,12 +23,13 @@ const getDeliveryTime = async(lat, long) => {
     const url = `https://api.distancematrix.ai/maps/api/distancematrix/json?origins=${habaneroLat},${habaneroLong}&destinations=${lat},${long}&key=JXZECMtfm9O0eLHmtaflAmhmPJ7xM`
     const res = await fetch(url)
     const data = await res.json();
+    console.log(data)
     return data.rows[0].elements[0].duration.text;
 }
 
 const deliveryEstimate = (time) => {
     let splitTime = time.split(' ');
-    const adjustedTime = parseInt(time[0], 10) + 20;
+    let adjustedTime = parseInt(splitTime[0], 10) + 20;
     splitTime[0] = adjustedTime;
     const deliveryTime = splitTime.join(' ');
     return deliveryTime;
